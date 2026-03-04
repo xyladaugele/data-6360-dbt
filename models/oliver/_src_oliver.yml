@@ -10,7 +10,7 @@ sources:
       - name: orderline
       - name: orders
       - name: product
-      - name: stores
+      - name: store
       
 
      

@@ -7,7 +7,7 @@
 
 select
 customer_id as customer_key,
-customer_id
+customer_id,
 email,
 state, 
 last_name,
