@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: transactional_landing
+    database: xyladaugele
+    schema: transactional_dw_source_ecoessentials_transactional_db
+    tables:
+      - name: customer
+      - name: order_table
+        identifier: "ORDER"
+      - name: order_line
+      - name: product
+      - name: promotional_campaign
+      
+  - name: emailevents_landing
+    database: xyladaugele
+    schema: emailevents_dw_source
+    tables:
+      - name: marketingemails
