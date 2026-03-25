@@ -3,18 +3,28 @@ version: 2
 models:
   - name: dim_agent
     description: "Insurance Agent Dimension"
+
   - name: dim_customer
     description: "Insurance Customer Dimension"
+
   - name: dim_date
     description: "Insurance Date Dimension"
+
   - name: dim_policy
     description: "Insurance Policy Dimension"
+    columns:
+      - name: policy_key
+        tests:
+          - unique
+
   - name: fact_claim
     description: "Insurance Claim Fact"
+
   - name: stg_customer_service_interactions
     description: |
       Staging model for customer service interactions.
       Each record represents a call between a customer and an agent.
+      
   - name: fact_interaction
     description: |
       Customer Service Interaction Fact.
