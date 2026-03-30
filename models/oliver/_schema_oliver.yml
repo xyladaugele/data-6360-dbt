@@ -3,19 +3,57 @@ version: 2
 models:
   - name: oliver_dim_customer
     description: "Oliver Customer Dimension"
+
   - name: oliver_dim_date
     description: "Oliver Date Dimension"
+
   - name: oliver_dim_employee
     description: "Oliver Employee Dimension"
+
   - name: oliver_dim_product
     description: "Oliver Product Dimension"
+    columns:
+      - name: product_key
+        tests:
+          - unique
+
   - name: oliver_dim_store
     description: "Oliver Store Dimension"
+
   - name: fact_sales
     description: "Oliver Sales Fact"
+    columns:
+      - name: product_key
+        description: "A foreign key to the product dimension"
+        tests:
+          - not_null
+
   - name: stg_employee_certifications
     description: "Staging model for employee certifications.
       Each record represents certification an employee took."
+    columns:
+      - name: certification_name
+        tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - "Customer Service Excellence"
+                  - "Conflict Resolution"
+                  - "Product Knowledge Level 2"
+                  - "Inventory Management"
+                  - "Workplace Safety"
+                  - "Leadership and Coaching"
+                  - "Strategic Retail Operations"
+                  - "Point of Sale Operations"
+                  - "Cash Handling and Security"
+
   - name: fact_certification
     description: "The grain of this table is employee + date + certification + cost
       Each record represents a certification an employee got on a given date and it's cost"
+    columns:
+      - name: employee_key
+        tests:
+          - relationships:
+              arguments:
+                to: ref('oliver_dim_employee') # the model you want to compare to
+                field: employee_key # the field on the model you want to compare to
