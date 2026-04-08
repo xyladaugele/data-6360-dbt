@@ -1,0 +1,87 @@
+version: 2
+
+models:
+  - name: dim_campaign
+    description: "Ecoessentials Campaign Dimension"
+    columns:
+      - name: campaign_discount
+        description: "To ensure that all campaigns have an attached campaign discount"
+        tests:
+          - not_null
+
+  
+  - name: dim_cust
+    description: "Ecoessentials Customer Dimension"
+    columns:
+      - name: custkey
+        tests:
+          - unique
+
+  - name: dim_email
+    description: "Ecoessentials Email Dimension"
+    columns:
+      - name: emailkey
+        description: "To ensure all emails have an email name/subject"
+        tests:
+          - not_null
+
+  - name: dim_event
+    description: "Ecoessentials Event Dimension"
+    columns:
+      - name: eventtype
+        tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - "SENT"
+                  - "OPEN"
+                  - "CLICK"
+  
+  - name: dim_product
+    description: "Ecoessentials Product Dimension"
+    columns:
+      - name: product_type
+        tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - "pan"
+                  - "storage"
+                  - "utensil"
+                  - "pot"
+                  - "cutting_board"
+                  - "accessory"
+
+  - name: dim_time
+    description: "Ecoessentials Time Dimension"
+    columns:
+      - name: timekey
+        tests:
+          - unique
+
+  - name: eco_dim_date
+    description: "Ecoessentials Date Dimension"
+    columns:
+      - name: datekey
+        tests:
+          - unique
+  
+  - name: eco_fact_sales
+    description: "Ecoessentials Sales Fact"
+    columns:
+      - name: custkey
+        tests:
+          - relationships:
+              arguments: 
+                to: ref('dim_cust') # the model you want to compare to
+                field: custkey # the field on the model you want to compare to
+
+  - name: fact_marketingemails
+    description: "Ecoessentials Marketing Emails Fact"
+    columns:
+      - name: timekey
+        tests:
+          - relationships:
+              arguments: 
+                to: ref('dim_time') # the model you want to compare to
+                field: timekey # the field on the model you want to compare to
