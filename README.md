@@ -20,4 +20,4 @@ First, we created a chart that shows sales over time by month. We also created t
 3. We learned how each tool works together to create an effective workflow. As mentioned previously, we learned how dbt, Fivetran, and Snowflake work together. Step 4 also allowed us to take a step back to truly understand the data and create valuable insight.
 
 ## Links
-[Star Schema ERD] (https://lucid.app/lucidchart/3594d33b-69ff-4354-b708-a6b542b259ca/edit?viewport_loc=100%2C117%2C832%2C1114%2C0_0&invitationId=inv_dcce761d-3c9f-4509-809c-3174d24cb030) 
+Star Schema ERD: https://lucid.app/lucidchart/3594d33b-69ff-4354-b708-a6b542b259ca/edit?viewport_loc=100%2C117%2C832%2C1114%2C0_0&invitationId=inv_dcce761d-3c9f-4509-809c-3174d24cb030
