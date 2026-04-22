@@ -16,7 +16,9 @@ First, we created a chart that shows sales over time by month. We also created t
 
 ## Takeaways
 1. One takeaway is that throughout the process we needded to continually make changes and reflect on our past work. We received feedback after each step and made the appropriate changes to ensure our work was accurate moving forward.
+   
 2. Another takeaway is the importance of attention to detail throughout the process. For example, the two datasources had different naming conventions. One used many underscores, while the other did not. This gave errors multiple times due to missing the correct naming for what was being referenced. In step 2, attention to detail was also important when determining what to join on.
+   
 3. We learned how each tool works together to create an effective workflow. As mentioned previously, we learned how dbt, Fivetran, and Snowflake work together. Step 4 also allowed us to take a step back to truly understand the data and create valuable insight.
 
 ## Links
